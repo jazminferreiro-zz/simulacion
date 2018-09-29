@@ -2,16 +2,16 @@ from general import *
 
 g = generador.GeneradorLinealCongruente()
 
-class Normal_distribution:
+class Normal:
 	def __init__(self, media, desvio):
 		if(desvio == 0):
 			raise ValueError('descio must be positive.')
 		self.media = media
 		self.desvio= desvio
-		self.c = (1.0/(self.desvio*math.sqrt(2.0*math.pi)))*math.exp(self.desvio + self.media-0.5)
+		self.c = math.sqrt(math.exp(1)/2.0*math.pi)
 
 	def density_function(self, x):
-		return (1.0/(self.desvio*math.sqrt(2.0*math.pi)))*math.exp(-(((x-self.media)**2)/(2*(self.desvio)**2)))
+		return (1.0/(math.sqrt(2.0*math.pi)))*math.exp(-(x**2)/2)
 
 	def exponencial_function(self, x):
 		return math.exp(-x)
@@ -33,12 +33,12 @@ class Normal_distribution:
 		for i in range(n):
 			while(not self.accept(u)):
 				u =  g.generar()
-				print("no se acepto %f" %(u))	
+				print("no se acepto %f" %(u*self.desvio+self.media))	
 			u3 = g.generar()
 			if(u3 >0.5):
-				l.append(u)
+				l.append(u*self.desvio+self.media)
 			else:
-				l.append(-u)
+				l.append(-u*self.desvio+self.media)
 			u =  g.generar()
 		return l
 
@@ -59,7 +59,7 @@ print("######################################################")
 print("\n")
 
 cant = 100000
-uni = Normal_distribution(0,1)
+uni = Normal(35,5)
 l = uni.generate_list(cant)
 generate_histogram(l, "HISTOGRAMA %d NUMEROS GENERADOS" %(cant),'./graficos/ejercicio4-histograma.png');
 
