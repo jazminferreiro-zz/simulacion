@@ -1,20 +1,4 @@
-import util.generador as generador
-import matplotlib.pyplot as plt
-import math
-import operator
-
-class Generator:
-	def __init__(self):
-		self.g = generador.GeneradorLinealCongruente();
-
-	def generate_list(self,n):
-		return self.g.generar_lista(n)
-
-def generate_histogram(num_list, title, path):
-	plt.hist(num_list)
-	plt.title(title)
-	plt.savefig(path)
-	plt.show()
+from general import *
 
 class Exponential_distribution:
 	def __init__(self, lamda):
@@ -38,25 +22,6 @@ class Exponential_distribution:
 		return 1.0/(self.lamda**2)
 
 
-def get_media(l):
-	return (sum(l)/len(l))
-
-def get_modas(l):
-	frecuencias = {}
-	for i in l:
-		if(i in frecuencias.keys()):
-			continue
-		frecuencias[i] = l.count(i)
-	return max(frecuencias.iteritems(), key=operator.itemgetter(1))[0]
-
-
-def get_variance(l):
-	average = get_media(l); 	
-	variance = 0
-	for i in l:
-		variance += (average - i) ** 2
-	return (variance/len(l))
-
 print("######################################################")
 print("EJERCICIO 2")
 print("######################################################")
@@ -70,5 +35,11 @@ print("La media es: %f" %(get_media(l)) )
 print("La varianza teorica de una v.A exponencial es: %f" %(exp.get_variance()))
 print("La varianza experimental es: %f" %(get_variance(l)))
 print("La moda es: %f" %(get_modas(l)))
+
+
+
+
+
+
 
 
