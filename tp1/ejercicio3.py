@@ -24,17 +24,19 @@ class Uniform_distribution:
 		return ((self.b+self.a)**2)/12.0
 
 
+
 print("######################################################")
 print("EJERCICIO 3")
 print("######################################################")
 print("\n")
 
+cant = 10000
 uni = Uniform_distribution(0,1)
-l = uni.generate_list(100)
-generate_histogram(l, "HISTOGRAMA NUMEROS GENERADOS",'./graficos/ejercicio3-histograma.png');
+l = uni.generate_list(cant)
+generate_histogram(l, "HISTOGRAMA %d NUMEROS GENERADOS" %(cant),'./graficos/ejercicio3-histograma.png');
 
 print("La media teorica de una V.A uniforme es: %f" %(uni.get_media()))
 print("La media es: %f" %(get_media(l)) )
-print("La varianza teorica de una v.A una es: %f" %(uni.get_variance()))
+print("La varianza teorica de una v.A uniforme es: %f" %(uni.get_variance()))
 print("La varianza experimental es: %f" %(get_variance(l)))
 print("La moda es: %f" %(get_modas(l)))

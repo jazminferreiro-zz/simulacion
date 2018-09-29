@@ -26,9 +26,10 @@ print("######################################################")
 print("EJERCICIO 2")
 print("######################################################")
 print("\n")
+cant = 10000
 exp = Exponential_distribution(15)
-l = exp.generate_list(10000)
-generate_histogram(l, "HISTOGRAMA DE 100000 NUMEROS GENERADOS",'./graficos/ejercicio2-histograma.png');
+l = exp.generate_list(cant)
+generate_histogram(l, "HISTOGRAMA %d NUMEROS GENERADOS" %(cant),'./graficos/ejercicio2-histograma.png');
 
 print("La media teorica de una v.A exponencial es: %f" %(exp.get_media()))
 print("La media es: %f" %(get_media(l)) )
