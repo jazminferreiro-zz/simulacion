@@ -3,13 +3,6 @@ import matplotlib.pyplot as plt
 import math
 import operator
 
-class Generator:
-	def __init__(self):
-		self.g = generador.GeneradorLinealCongruente();
-
-	def generate_list(self,n):
-		return self.g.generar_lista(n)
-
 def generate_histogram(num_list, title, path):
 	plt.hist(num_list)
 	plt.title(title)
@@ -34,3 +27,5 @@ def get_variance(l):
 	for i in l:
 		variance += (average - i) ** 2
 	return (variance/len(l))
+
+

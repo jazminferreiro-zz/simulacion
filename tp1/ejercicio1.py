@@ -10,7 +10,7 @@ print("\n")
 
 print("IMPRIMIR PRIMEROS 6 NUMEROS GENERADOS")
 for i in range(6):
-  print("EL NUMERO %d GENERADO ES: %f" %(i, g.generar()))
+	print("EL NUMERO %d GENERADO ES: %f" %(i, g.generar()))
 print("FIN IMPRIMIR PRIMEROS 6 NUMEROS GENERADOS")
 print("\n")
 
